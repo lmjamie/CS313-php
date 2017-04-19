@@ -2,8 +2,7 @@ function been_clicked() {
     alert("Clicked!");
 }
 
-function change_color(id){
+function change_color(color){
     var div1 = document.getElementById("div1");
-    var divColor = document.getElementById(id).value;
-    div1.style.backgroundColor = divColor;
+    div1.style.backgroundColor = color;
 }

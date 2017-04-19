@@ -23,7 +23,11 @@
             </p>
         </div>
         <button onclick="been_clicked();">Click Me</button>
+        <br>
         <input id="color" type="text" value="" />
-        <button onclick="change_color(color)">Change Color</button>
+        <button
+            onclick="change_color(document.getElementById('color').value)">
+            Change Color
+        </button>
     </body>
 </html>
