@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-        <script src="js/homepagejs.js"></script>
+        <script src="js/navbar.js"></script>
     </head>
     <body>
         <header>
@@ -17,16 +17,26 @@
                         <i class="material-icons right">person_pin</i>
                         Landon Jamieson
                     </a>
-                    <a class="button-collapse" href="#" data-activates="mobile-menu">
-                        <i class="material-icons right">menu</i>
+                    <a class="button-collapse right" href="#" data-activates="mobile-menu">
+                        <i class="material-icons">menu</i>
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="assign.html"><i class="material-icons left">play_for_work</i>Assignments</a></li>
                         <li><a href="about.html"><i class="material-icons left">info</i>About Me</a></li>
                     </ul>
-                    <ul id="mobile-menu" class="right side-nav">
-                        <li><a href="assign.html"><i class="material-icons left">play_for_work</i>Assignments</a></li>
-                        <li><a href="about.html"><i class="material-icons left">info</i>About Me</a></li>
+                    <ul id="mobile-menu" class="right green lighten-1 side-nav">
+                        <li>
+                            <a href="assign.html" class="white-text">
+                                <i class="material-icons white-text left">play_for_work</i>
+                                Assignments
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="white-text">
+                                <i class="material-icons white-text left">info</i>
+                                About Me
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>

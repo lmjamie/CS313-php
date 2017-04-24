@@ -6,22 +6,41 @@
         <link rel="stylesheet" href="css/customize.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <script src="js/navbar.js"></script>
     </head>
     <body>
         <header>
-            <nav>
+           <nav>
                 <div class="nav-wrapper green lighten-1">
                     <a href="homepage.html" class="left brand-logo">
                         <i class="material-icons right">person_pin</i>
                         Landon Jamieson
                     </a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <a class="button-collapse right" href="#" data-activates="mobile-menu">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
                         <li><a href="assign.html"><i class="material-icons left">play_for_work</i>Assignments</a></li>
                         <li><a href="about.html"><i class="material-icons left">info</i>About Me</a></li>
                     </ul>
+                    <ul id="mobile-menu" class="right green lighten-1 side-nav">
+                        <li>
+                            <a href="assign.html" class="white-text">
+                                <i class="material-icons white-text left">play_for_work</i>
+                                Assignments
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="white-text">
+                                <i class="material-icons white-text left">info</i>
+                                About Me
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+           </nav>
         </header>
         <main>
             <div class="container center">
@@ -31,15 +50,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s4">
+                    <div class="col m10 l4">
                         <img class="responsive-img" alt="fast typing" src="images/fast-keyboard.gif"/>
                     </div>
-                    <div class="col s4">
+                    <div class="col m10 l4">
                         <blockquote>
                             We are working hard to bring you this page in all its glory!
                         </blockquote>
                     </div>
-                    <div class="col s4">
+                    <div class="col m10 l4">
                         <img class="responsive-img" alt="fist typing" src="images/fist-keyboard.gif"/>
                     </div>
                 </div>
