@@ -30,5 +30,4 @@
     echo  "$places_list[$p], ";
   }
   echo "<h4>Comments:</h4> $comments";
-
  ?>

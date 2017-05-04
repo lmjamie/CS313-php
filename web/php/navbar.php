@@ -15,13 +15,13 @@ $page = basename($_SERVER['PHP_SELF'], ".php");
       </ul>
       <ul id="mobile-menu" class="right green lighten-1 side-nav">
         <li>
-          <a href="assign.html" class="white-text">
-            <i class="material-icons white-text left">play_for_work</i> Assignments
+          <a href="assign.html" class="flow-text white-text">
+            <i class="material-icons white-text flow-text left">play_for_work</i> Assignments
           </a>
         </li>
         <li>
-          <a href="about.php" class="white-text">
-            <i class="material-icons white-text left">info</i> About Me
+          <a href="about.php" class="flow-text white-text">
+            <i class="material-icons white-text flow-text left">info</i> About Me
           </a>
         </li>
       </ul>
