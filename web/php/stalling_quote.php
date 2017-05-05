@@ -1,5 +1,5 @@
-<div class="col m12 l4">
-    <blockquote class="flow-text">
-        We are working hard to bring you this page in all its glory!
+<div class="col m12 l6">
+    <blockquote>
+        The fruits of my hard work will be available here in all of their glory!
     </blockquote>
 </div>

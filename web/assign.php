@@ -24,10 +24,18 @@
       <div class="row">
         <?php
          require('php/image.php');
-        make_image("images/fast-keyboard.gif", "Fast Typing");
+        make_image("images/fast-keyboard.gif", "Fast Typing", 3);
         require("php/stalling_quote.php");
-        make_image("images/fist-keyboard.gif", "Fist Typing")
+        make_image("images/fist-keyboard.gif", "Fist Typing", 3);
         ?>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <ul class="collection">
+            <li class="collection-item blue lighten-2 flow-text"><a class="blue-text text-lighten-5" href="homepage.php">Homepage</a></li>
+            <li class="collection-item blue lighten-2 flow-text"><a class="blue-text text-lighten-5" href="store.php">Store</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </main>
