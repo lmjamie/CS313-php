@@ -30,6 +30,21 @@
       $lighten = "text-darken-1";
       $header_size = 4;
       break;
+    case 'cart':
+      $title_content = "Shopping Cart";
+      $color = "blue-grey-text";
+      $lighten = "text-darken-1";
+      $header_size = 2;
+      break;
+    case 'checkout':
+      $title_content = "Checkout";
+      $lighten = "text-lighten-2";
+      break;
+    case 'confirm':
+      $title_content = "Thank you for placing your order!";
+      $lighten = "text-lighten-3";
+      $header_size = 4;
+      break;
     default:
       $title_content = "Web Engineering II";
       break;

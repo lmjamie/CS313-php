@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Assignments - Web II</title>
-  <link rel="stylesheet" href="css/customize.css" />
+  <link rel="stylesheet" href="css/sticky_footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -9,5 +9,5 @@
   }
 
 //living a minute at a time.
-  $_SESSION["Restart"] = $now + 1200;
+  $_SESSION["Restart"] = $now + 3600;
 ?>
