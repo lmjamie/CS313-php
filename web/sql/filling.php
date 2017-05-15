@@ -8,9 +8,9 @@
 </head>
 <body>
   <?php
+    use mtgsdk\Type;
     require_once("midl.php");
     echo "stuff\n\n";
-
     $types = Type::all();
     echo $types;
     var_dump($types);
