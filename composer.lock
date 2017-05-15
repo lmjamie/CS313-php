@@ -4,13 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "35ebe24ec8efc38b3b544041896aa986",
-    "content-hash": "a990a9d5e7316fba97ebdc38e9945729",
-    "packages": [],
+    "content-hash": "84df1d1a1f86f73c4d589f9ccf0957c9",
+    "packages": [
+        {
+            "name": "mtgsdk/mtgsdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MagicTheGathering/mtg-sdk-php.git",
+                "reference": "3cfb0e3d52653e66010ae69daad12c384c51fa7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MagicTheGathering/mtg-sdk-php/zipball/3cfb0e3d52653e66010ae69daad12c384c51fa7f",
+                "reference": "3cfb0e3d52653e66010ae69daad12c384c51fa7f",
+                "shasum": ""
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.12",
+                "php-vcr/php-vcr": "^1.2",
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mtgsdk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guido Contreras Woda",
+                    "email": "guiwoda@gmail.com"
+                }
+            ],
+            "description": "Magic: The Gathering SDK for php",
+            "time": "2017-04-25 13:19:15"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "mtgsdk/mtgsdk": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
