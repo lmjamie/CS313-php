@@ -22,6 +22,7 @@
     // echo "<p>pgsql:host=$dbHost;port=$dbPort;dbname=$dbName</p>\n\n";
 
     try {
+
       $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
       // $db = new PDO("pgsql:host=localhost;port=81;dbname=magicinventory;user=postgres;password=28ZAwras");
     }
@@ -29,6 +30,7 @@
       echo "<p>error: " . $ex->getMessage() . " </p>\n\n";
       die();
     }
+  echo "<h1>SUCCESS!</h1>\n\n";
   ?>
 </body>
 </html>
