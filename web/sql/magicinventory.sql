@@ -14,37 +14,38 @@ CREATE TABLE collectors
 CREATE TABLE conditions
 (
   id SERIAL PRIMARY KEY,
-  code VARCHAR(4) NOT NULL
+  code VARCHAR(4) NOT NULL UNIQUE
 );
 \d conditions
 
 CREATE TABLE rarities(
   id SERIAL PRIMARY KEY,
-  type VARCHAR(25)
+  type VARCHAR(25) UNIQUE
 );
 \d rarities
 
 CREATE TABLE sets(
   id SERIAL PRIMARY KEY,
-  code VARCHAR(10) NOT NULL
+  code VARCHAR(10) NOT NULL UNIQUE,
+  name VARCHAR(100) NOT NULL UNIQUE
 );
 \d sets
 
 CREATE TABLE types(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(25) NOT NULL
+  name VARCHAR(25) NOT NULL UNIQUE
 );
 \d types
 
 CREATE TABLE supertypes(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(25) NOT NULL
+  name VARCHAR(25) NOT NULL UNIQUE
 );
 \d supertypes
 
 CREATE TABLE subtypes(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(25) NOT NULL
+  name VARCHAR(25) NOT NULL UNIQUE
 );
 \d subtypes
 
