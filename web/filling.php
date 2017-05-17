@@ -10,11 +10,12 @@
   <?php
     require("vendor/autoload.php");
     require_once("midl.php");
+    echo "before use";
     use mtgsdk\Type;
     use mtgsdk\Supertype;
     use mtgsdk\Subtype;
     use mtgsdk\Set;
-
+    echo "After use";
     function insert_type($type) {
       global $db;
       $stmt = $db->prepare('INSERT INTO types (name) VALUES (:type)
