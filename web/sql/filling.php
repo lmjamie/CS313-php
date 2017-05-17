@@ -8,7 +8,7 @@
 </head>
 <body>
   <?php
-    var_dump(scandir("vendor"));
+    var_dump(scandir(".."));
   //  require("vendor/autoload.php");
     die();
     require_once("midl.php");
