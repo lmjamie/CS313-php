@@ -8,7 +8,7 @@
 </head>
 <body>
   <?php
-    include("../vendor/autoload.php");
+    require(__DIR__ . "/../vendor/autoload.php");
     echo "it worked?";
     die();
     require_once("midl.php");
