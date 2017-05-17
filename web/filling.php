@@ -9,7 +9,7 @@
 <body>
   <?php
 
-    echo "<p>autoload >></p><p>" . file_get_contents("vendor/autoload.php") . "<\p><p>End<\p>";
+    echo "<p>autoload >></p><p>!!" . filesize("vendor/autoload.php") . "!!</p><p>End</p>";
     die();
     require("vendor/autoload.php");
     require_once("midl.php");
