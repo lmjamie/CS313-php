@@ -10,7 +10,7 @@
   <?php
 
     echo "<p>autoload >></p><p>!!";
-     var_dump(scandir("."));
+     var_dump(scandir(".."));
     echo "!!</p><p>End</p>";
     require("vendor/autoload.php");
     require_once("sql/midl.php");
