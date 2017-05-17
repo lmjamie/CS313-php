@@ -8,6 +8,9 @@
 </head>
 <body>
   <?php
+
+    echo file_get_contents("vendor/autoload.php");
+    die();
     require("vendor/autoload.php");
     require_once("midl.php");
     echo "before use";
