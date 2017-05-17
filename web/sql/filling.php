@@ -8,7 +8,9 @@
 </head>
 <body>
   <?php
-    require("../vendor/autoload.php");
+    include("../vendor/autoload.php");
+    echo "it worked?";
+    die();
     require_once("midl.php");
     use mtgsdk\Type;
     use mtgsdk\Supertype;
