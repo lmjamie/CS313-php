@@ -13,7 +13,7 @@
      var_dump(scandir("."));
     echo "!!</p><p>End</p>";
     require("vendor/autoload.php");
-    require_once("midl.php");
+    require_once("sql/midl.php");
     echo "before use";
     use mtgsdk\Type;
     use mtgsdk\Supertype;
