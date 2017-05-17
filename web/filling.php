@@ -10,7 +10,7 @@
   <?php
 
     echo "<p>autoload >></p><p>!!";
-     var_dump(scandir("vendor"));
+     var_dump(scandir("."));
     echo "!!</p><p>End</p>";
     die();
     require("vendor/autoload.php");
