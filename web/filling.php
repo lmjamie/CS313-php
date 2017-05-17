@@ -12,7 +12,6 @@
     echo "<p>autoload >></p><p>!!";
      var_dump(scandir("."));
     echo "!!</p><p>End</p>";
-    die();
     require("vendor/autoload.php");
     require_once("midl.php");
     echo "before use";
