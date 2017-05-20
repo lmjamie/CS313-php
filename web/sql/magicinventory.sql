@@ -5,7 +5,7 @@ CREATE TABLE collectors
 (
   id SERIAL PRIMARY KEY,
   username VARCHAR(50) NOT NULL UNIQUE,
-  password VARCHAR(50) NOT NULL,
+  password CHAR(60) NOT NULL,
   fname VARCHAR(100) NOT NULL,
   lname VARCHAR(100) NOT NULL
 );
@@ -49,6 +49,11 @@ CREATE TABLE subtypes(
 );
 \d subtypes
 
+CREATE TABLE colors(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(25) NOT NULL UNIQUE
+);
+
 CREATE TABLE inventories(
   id SERIAL PRIMARY KEY,
   totalcards INT NOT NULL,
@@ -75,9 +80,14 @@ CREATE TABLE tradelists(
 
 CREATE TABLE cards(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
+  name VARCHAR(100) NOT NULL UNIQUE,
   cmc INT NOT NULL,
   manacost VARCHAR(100),
+  colorid1 INT NOT NULL REFERENCES colors(id),
+  colorid2 INT REFERENCES colors(id),
+  colorid3 INT REFERENCES colors(id),
+  colorid4 INT REFERENCES colors(id),
+  colorid5 INT REFERENCES colors(id),
   typeid1 INT NOT NULL REFERENCES types(id),
   typeid2 INT REFERENCES types(id),
   supertypeid1 INT REFERENCES supertypes(id),
@@ -96,9 +106,9 @@ CREATE TABLE cards(
 CREATE TABLE specificcards(
   id SERIAL PRIMARY KEY,
   flavor TEXT,
-  imageurl VARCHAR(256) NOT NULL,
+  imageurl VARCHAR(256) NOT NULL UNIQUE,
   rarityid INT NOT NULL REFERENCES rarities(id),
-  numinset INT NOT NULL,
+  numinset VARCHAR(10) NOT NULL,
   setid INT NOT NULL REFERENCES sets(id),
   cardid INT NOT NULL REFERENCES cards(id)
 );
@@ -134,3 +144,26 @@ CREATE TABLE tradecontents(
   tradelistid INT NOT NULL REFERENCES tradelists(id)
 );
 \d tradecontents
+
+INSERT INTO collectors(username, password, fname, lname)
+VALUES
+('landon1', '$2y$10$B.Wqg0X7kBeTHCWJmx9qm.uW6lenNWJ4DmJ9eMxAziV4G6cvUVemy', 'Landon', 'Jamieson'),
+('test', '$2y$10$hahYKaiOiehFesD0Qsv7iu/ESQw.RHVa42gABIoB9rpwgq5AROyJi', 'Tester', 'McTesterson');
+
+INSERT INTO inventories(totalcards, distinctcards, collectorid)
+VALUES
+(0, 0, 1),
+(0, 0, 2);
+
+INSERT INTO tradelists(totaltrade, distincttrade, inventoryid)
+VALUES
+(0, 0, 1),
+(0, 0, 2);
+
+INSERT INTO wantlists(totalwanted, distinctwanted, collectorid)
+VALUES
+(0, 0, 1),
+(0, 0, 2);
+
+INSERT INTO specificcards(flavor, imageurl, rarityid, numinset, setid, cardid)
+VALUES ()

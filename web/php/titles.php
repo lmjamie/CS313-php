@@ -12,7 +12,7 @@
       $title_content = "About Me";
       $header_size = 2;
       $col_tag_begin = $col_tag_end = "";
-      $header_class = " class=\"header $color-text text-darken-1\"";
+      $header_class = " class=\"header $color text-darken-1\"";
       break;
     case 'assign':
       $title_content = "Landon's Assignments";
@@ -44,6 +44,26 @@
       $title_content = "Thank you for placing your order!";
       $lighten = "text-lighten-3";
       $header_size = 4;
+      break;
+    case 'inventory':
+      $title_content = $_SESSION['fname'] . " " . $_SESSION['lname'] ."'s Inventory";
+      $color = "blue-grey-text";
+      $header_size = 4;
+      break;
+    case 'trade':
+      $title_content = $_SESSION['fname'] . " " . $_SESSION['lname'] ."'s Tradelist";
+      $color = "blue-grey-text";
+      $header_size = 4;
+      break;
+    case 'want':
+      $title_content = $_SESSION['fname'] . " " . $_SESSION['lname'] ."'s Wantlist";
+      $color = "blue-grey-text";
+      $header_size = 4;
+      break;
+    case 'login':
+      $title_content = "Login";
+      $lighten = "text-lighten-2";
+      $header_size = 3;
       break;
     default:
       $title_content = "Web Engineering II";

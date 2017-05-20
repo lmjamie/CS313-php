@@ -14,7 +14,7 @@
     $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
   }
   catch (PDOException $ex) {
-    echo "<p>error: " . $ex->getMessage() . "</p>\n\n";
+     echo "<p>error: " . $ex->getMessage() . "</p>\n\n";
     die();
   }
 ?>
