@@ -267,8 +267,7 @@
         insert_card($card, $prep);
       }
     }
-  $result = $db->query("ALTER specificcards ALTER COLUMN numinset DROP NOT NULL");
-  if (!empty($result->errorCode())) { var_dump($result->errorInfo); die();}
+  $db->query("ALTER specificcards ALTER COLUMN numinset DROP NOT NULL");
   fill_cards();
   ?>
 </body>
