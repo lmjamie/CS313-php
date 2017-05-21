@@ -99,7 +99,7 @@ CREATE TABLE cards(
   rules TEXT,
   power VARCHAR(10),
   toughness VARCHAR(10),
-  loyalty INT
+  loyalty VARCHAR(10)
 );
 \d cards
 
@@ -165,5 +165,65 @@ VALUES
 (0, 0, 1),
 (0, 0, 2);
 
-INSERT INTO specificcards(flavor, imageurl, rarityid, numinset, setid, cardid)
-VALUES ()
+INSERT INTO inventorycontents(qty, foil, modified, conditionid, specificcardid, inventoryid)
+VALUES
+(2, false, now(), 1, 87, 1),
+(1, true, now(), 1, 102, 1),
+(7, false, now(), 1, 1, 1),
+(2, false, now(), 3, 1, 1),
+(2, false, now(), 2, 341, 1),
+(3, false, now(), 1, 342, 1),
+(1, false, now(), 2, 343, 1),
+(4, false, now(), 1, 344, 1),
+(10, false, now(), 1, 179, 1),
+(2, false, now(), 4, 535, 1),
+(10, false, now(), 1, 324, 2),
+(5, true, now(), 1, 2, 2),
+(7, false, now(), 1, 475, 2),
+(8, false, now(), 2, 476, 2),
+(9, false, now(), 1, 477, 2),
+(10, false, now(), 1, 478, 2),
+(10, false, now(), 2, 479, 2),
+(42, false, now(), 1, 561, 2),
+(10, false, now(), 1, 562, 2),
+(1, false, now(), 4, 326, 2);
+UPDATE inventories
+SET totalcards = 34, distinctcards = 10
+WHERE id = 1;
+UPDATE inventories
+SET totalcards = 112, distinctcards = 10
+WHERE id = 2;
+
+INSERT INTO tradecontents(qty, modified, inventorycontentid, tradelistid)
+VALUES
+(2, now(), 3, 1),
+(5, now(), 9, 1),
+(5, now(), 11, 2),
+(2, now(), 13, 2),
+(3, now(), 14, 2),
+(4, now(), 15, 2),
+(5, now(), 16, 2),
+(5, now(), 17, 2),
+(37, now(), 18, 2),
+(5, now(), 19, 2);
+UPDATE tradelists
+SET totaltrade = 7, distincttrade = 2
+WHERE inventoryid = 1;
+UPDATE tradelists
+SET totaltrade = 66, distincttrade = 8
+WHERE inventoryid = 2;
+
+INSERT INTO wantcontents(qty, foil, modified, conditionid, specificcardid, wantlistid)
+VALUES
+(1, false, now(), 1, 324, 1),
+(1, false, now(), 1, 132, 1),
+(1, false, now(), 1, 133, 1),
+(4, true, now(), 1, 3, 2),
+(1, false, now(), 1, 589, 2),
+(3, false, now(), 1, 4, 2);
+UPDATE wantlists
+SET totalwanted = 3, distinctwanted = 3
+WHERE collectorid = 1;
+UPDATE wantlists
+SET totalwanted = 8, distinctwanted = 3
+WHERE collectorid = 2;

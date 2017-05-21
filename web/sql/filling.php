@@ -244,7 +244,6 @@
     function fill_cards($num = 5) {
       global $db;
       $cards = Card::where(['set' => 'lea|akh'])->all();
-      var_dump($cards);
       $prep = array('test_prep' => $db->prepare("SELECT id FROM cards WHERE name = :name"),
       'card_insert' => $db->prepare(
         "INSERT INTO
@@ -267,8 +266,8 @@
         insert_card($card, $prep);
       }
     }
-  $db->query("ALTER specificcards ALTER COLUMN numinset DROP NOT NULL");
-  fill_cards();
+    
+
   ?>
 </body>
 
