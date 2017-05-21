@@ -225,7 +225,8 @@
           ':subtypeid1' => $subtypes[0], ':subtypeid2' => $subtypes[1], ':subtypeid3' => $subtypes[2],
           ':subtypeid4' => $subtypes[3], ':rules' => $rules, ':power' => $power,
           ':toughness' => $toughness, ':loyalty' => $loyalty));
-          foreach ($prep['card_insert']->errorInfo as $ei) echo "<p>$ei</p>";
+          if(!empty($prep['card_insert']->errorCode()))
+              echo "<p>" . $prep['card_insert']->errorInfo()[2] . "</p>";
         $card_id = $db->lastInsertId();
       }
       echo "<p>!$card_id!</p>";
@@ -243,7 +244,8 @@
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
         ':numinset' => $num, ':setid' => $set, ':cardid' => $card_id));
 
-      var_dump($prep['scard_insert']->errorInfo());
+  if(!empty($prep['scard_insert']->errorCode()))
+      echo "<p>" . $prep['scard_insert']->errorInfo()[2] . "</p>";
     }
 
 
@@ -262,7 +264,7 @@
                 :toughness, :loyalty)"),
       'scard_insert' => $db->prepare(
         "INSERT INTO specificcards(flavor, imageurl, rarityid, numinset, setid, cardid)
-        VALUES(:flavor, :imageurl, :rarityid, :numinset, :setid, :cardid) ON CONFLICT DO UPDATE"),
+        VALUES(:flavor, :imageurl, :rarityid, :numinset, :setid, :cardid) ON CONFLICT DO NOTHING"),
       'set_stmt' => $db->prepare("SELECT id FROM sets WHERE code = :code"),
         'type_stmt' => $db->prepare("SELECT id FROM types WHERE name = :type"),
       'supertype_stmt' => $db->prepare("SELECT id FROM supertypes WHERE name = :st"),
