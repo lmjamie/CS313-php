@@ -244,7 +244,7 @@
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
         ':numinset' => $num, ':setid' => $set, ':cardid' => $card_id));
 
-      foreach ($prep['scard_insert']->errorInfo as $ei) echo "<p>$ei</p>";
+      var_dump($prep['scard_insert']->errorInfo());
     }
 
 
