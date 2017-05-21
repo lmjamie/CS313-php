@@ -236,8 +236,10 @@
       $prep['scard_insert']->execute(array(
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
         ':numinset' => $num, ':setid' => $set, ':cardid' => $card_id));
-      if (empty($prep['scard_insert']->errorCode())) { var_dump($prep['scard_insert']->errorInfo);}
-      echo "<p>Inserted card $name from $set</p>";
+      echo "<p>";
+      var_dump($prep['scard_insert']->errorCode);
+      var_dump($prep['scard_insert']->errorInfo);
+      echo"</p>";
     }
 
 
