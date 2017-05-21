@@ -237,7 +237,6 @@
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
         ':numinset' => $num, ':setid' => $set, ':cardid' => $card_id));
       echo "<p>";
-      var_dump($prep['scard_insert']->errorCode);
       var_dump($prep['scard_insert']->errorInfo);
       echo"</p>";
     }
