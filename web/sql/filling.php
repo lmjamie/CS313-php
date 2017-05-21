@@ -228,12 +228,17 @@
           foreach ($prep['card_insert']->errorInfo as $ei) echo "<p>$ei</p>";
         $card_id = $db->lastInsertId();
       }
-
+      echo "<p>!$card_id!</p>";
       $flavor = get($card, "flavor");
+      echo "<p>!$flavor!</p>";
       $imageurl = get($card, "imageUrl");
+      echo "<p>!$imageurl!</p>";
       $rarity = rarity_handler(get($card, "rarity"), $prep['rarity_stmt']);
+      echo "<p>!$rarity!</p>";
       $num = get($card, "number");
+      echo "<p>!$num!</p>";
       $set = set_handler(get($card, "set"), $prep['set_stmt']);
+      echo "<p>!$set!</p>";
       $prep['scard_insert']->execute(array(
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
         ':numinset' => $num, ':setid' => $set, ':cardid' => $card_id));
@@ -244,7 +249,7 @@
 
     function fill_cards($num = 5) {
       global $db;
-      $cards = Card::where(['set' => 'lea|akh'])->all();
+      $cards = array_slice(Card::where(['set' => 'lea|akh'])->all(), 0, 20);
       $prep = array('test_prep' => $db->prepare("SELECT id FROM cards WHERE name = :name"),
       'card_insert' => $db->prepare(
         "INSERT INTO
@@ -257,7 +262,7 @@
                 :toughness, :loyalty)"),
       'scard_insert' => $db->prepare(
         "INSERT INTO specificcards(flavor, imageurl, rarityid, numinset, setid, cardid)
-        VALUES(:flavor, :imageurl, :rarityid, :numinset, :setid, :cardid) ON CONFLICT DO NOTHING"),
+        VALUES(:flavor, :imageurl, :rarityid, :numinset, :setid, :cardid) ON CONFLICT DO UPDATE"),
       'set_stmt' => $db->prepare("SELECT id FROM sets WHERE code = :code"),
         'type_stmt' => $db->prepare("SELECT id FROM types WHERE name = :type"),
       'supertype_stmt' => $db->prepare("SELECT id FROM supertypes WHERE name = :st"),
