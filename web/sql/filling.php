@@ -225,6 +225,7 @@
           ':subtypeid1' => $subtypes[0], ':subtypeid2' => $subtypes[1], ':subtypeid3' => $subtypes[2],
           ':subtypeid4' => $subtypes[3], ':rules' => $rules, ':power' => $power,
           ':toughness' => $toughness, ':loyalty' => $loyalty));
+          foreach ($prep['card_insert']->errorInfo as $ei) echo "<p>$ei</p>";
         $card_id = $db->lastInsertId();
       }
 
@@ -236,9 +237,8 @@
       $prep['scard_insert']->execute(array(
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
         ':numinset' => $num, ':setid' => $set, ':cardid' => $card_id));
-      echo "<p>";
-      var_dump($prep['scard_insert']->errorInfo);
-      echo"</p>";
+
+      foreach ($prep['scard_insert']->errorInfo as $ei) echo "<p>$ei</p>";
     }
 
 
