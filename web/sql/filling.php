@@ -13,6 +13,7 @@
 
     require("../../vendor/autoload.php");
     require_once("midl.php");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     use mtgsdk\Type;
     use mtgsdk\Supertype;
     use mtgsdk\Subtype;
