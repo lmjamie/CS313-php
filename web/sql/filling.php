@@ -226,32 +226,26 @@
           ':subtypeid4' => $subtypes[3], ':rules' => $rules, ':power' => $power,
           ':toughness' => $toughness, ':loyalty' => $loyalty));
           if(!empty($prep['card_insert']->errorCode()))
-              echo "<p>" . $prep['card_insert']->errorInfo()[2] . "</p>";
+              echo "<p>Card INSERT: " . $prep['card_insert']->errorInfo()[2] . "</p>";
         $card_id = $db->lastInsertId();
       }
-      echo "<p>!$card_id!</p>";
       $flavor = get($card, "flavor");
-      echo "<p>!$flavor!</p>";
       $imageurl = get($card, "imageUrl");
-      echo "<p>!$imageurl!</p>";
       $rarity = rarity_handler(get($card, "rarity"), $prep['rarity_stmt']);
-      echo "<p>!$rarity!</p>";
       $num = get($card, "number");
-      echo "<p>!$num!</p>";
       $set = set_handler(get($card, "set"), $prep['set_stmt']);
-      echo "<p>!$set!</p>";
       $prep['scard_insert']->execute(array(
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
         ':numinset' => $num, ':setid' => $set, ':cardid' => $card_id));
 
   if(!empty($prep['scard_insert']->errorCode()))
-      echo "<p>" . $prep['scard_insert']->errorInfo()[2] . "</p>";
+      echo "<p>scard INSERT: " . $prep['scard_insert']->errorInfo()[2] . "</p>";
     }
 
 
     function fill_cards($num = 5) {
       global $db;
-      $cards = array_slice(Card::where(['set' => 'lea|akh'])->all(), 0, 20);
+      $cards = Card::where(['set' => 'lea|akh'])->all();
       $prep = array('test_prep' => $db->prepare("SELECT id FROM cards WHERE name = :name"),
       'card_insert' => $db->prepare(
         "INSERT INTO
