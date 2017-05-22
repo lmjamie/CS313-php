@@ -1,6 +1,7 @@
 <?php
   require("php/moving_page.php");
   move_if_not_set_in_session("username", "login.php", "Please Login");
+  require("sql/midl.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +27,16 @@
     <div class="container center">
       <div class="row">
         <?php require("php/titles.php"); ?>
+        <div class="col s12 blue-grey-text text-lighten-1">
+          <?php
+            $stmt = $db->prepare("SELECT tl.totaltrade, tl.distincttrade
+              FROM tradelists AS tl, inventories AS i
+              WHERE i.collectorid = :cid AND tl.inventoryid = i.id");
+            $stmt->execute(array(':cid' => $_SESSION["collector_id"]));
+            $trade_totals = $stmt->fetch();
+            echo "<h6>Total Trades: " . $trade_totals[0] ." -- Distinct Trades: " . $trade_totals[1] . "</h6>";
+          ?>
+        </div>
       </div>
       <div class="row">
         <?php require("php/trade_table.php"); ?>

@@ -1,6 +1,7 @@
 <?php
   require("php/moving_page.php");
   move_if_not_set_in_session("username", "login.php", "Please Login");
+  require("sql/midl.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,15 @@
     <div class="container center">
       <div class="row">
         <?php require("php/titles.php"); ?>
-      </div>
+        <div class="col s12 blue-grey-text text-lighten-1">
+          <?php
+            $stmt = $db->prepare("SELECT totalcards, distinctcards FROM inventories WHERE collectorid = :cid");
+            $stmt->execute(array(':cid' => $_SESSION["collector_id"]));
+            $inv_totals = $stmt->fetch();
+            echo "<h6>Total Cards: " . $inv_totals[0] ." -- Distinct Cards: " . $inv_totals[1] . "</h6>";
+          ?>
+        </div>
+      </div
       <div class="row">
         <?php require("php/inv_table.php"); ?>
       </div>

@@ -167,26 +167,26 @@ VALUES
 
 INSERT INTO inventorycontents(qty, foil, modified, conditionid, specificcardid, inventoryid)
 VALUES
-(2, false, now(), 1, 87, 1),
-(1, true, now(), 1, 102, 1),
+(2, false, now(), 1, 19, 1),
+(1, true, now(), 1, 535, 1),
 (7, false, now(), 1, 1, 1),
 (2, false, now(), 3, 1, 1),
-(2, false, now(), 2, 341, 1),
-(3, false, now(), 1, 342, 1),
-(1, false, now(), 2, 343, 1),
-(4, false, now(), 1, 344, 1),
-(10, false, now(), 1, 179, 1),
-(2, false, now(), 4, 535, 1),
-(10, false, now(), 1, 324, 2),
-(5, true, now(), 1, 2, 2),
-(7, false, now(), 1, 475, 2),
-(8, false, now(), 2, 476, 2),
-(9, false, now(), 1, 477, 2),
-(10, false, now(), 1, 478, 2),
-(10, false, now(), 2, 479, 2),
-(42, false, now(), 1, 561, 2),
-(10, false, now(), 1, 562, 2),
-(1, false, now(), 4, 326, 2);
+(2, false, now(), 2, 34, 1),
+(3, false, now(), 4, 35, 1),
+(1, false, now(), 2, 36, 1),
+(4, false, now(), 1, 37, 1),
+(10, false, now(), 1, 498, 1),
+(2, false, now(), 1, 103, 1),
+(10, false, now(), 1, 18, 2),
+(5, false, now(), 1, 2, 2),
+(7, false, now(), 1, 168, 2),
+(8, false, now(), 2, 169, 2),
+(9, false, now(), 1, 170, 2),
+(10, false, now(), 1, 171, 2),
+(10, false, now(), 2, 172, 2),
+(42, false, now(), 1, 254, 2),
+(10, false, now(), 1, 255, 2),
+(1, false, now(), 4, 253, 2);
 UPDATE inventories
 SET totalcards = 34, distinctcards = 10
 WHERE id = 1;
@@ -218,8 +218,8 @@ VALUES
 (1, false, now(), 1, 324, 1),
 (1, false, now(), 1, 132, 1),
 (1, false, now(), 1, 133, 1),
-(4, true, now(), 1, 3, 2),
-(1, false, now(), 1, 589, 2),
+(4, true, now(), 1, 500, 2),
+(1, false, now(), 1, 316, 2),
 (3, false, now(), 1, 4, 2);
 UPDATE wantlists
 SET totalwanted = 3, distinctwanted = 3

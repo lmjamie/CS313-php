@@ -1,6 +1,7 @@
 <?php
   require("php/moving_page.php");
   move_if_not_set_in_session("username", "login.php", "Please Login");
+  require("sql/midl.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +27,14 @@
     <div class="container center">
       <div class="row">
         <?php require("php/titles.php"); ?>
+        <div class="col s12 blue-grey-text text-lighten-1">
+          <?php
+            $stmt = $db->prepare("SELECT totalwanted, distinctwanted FROM wantlists WHERE collectorid = :cid");
+            $stmt->execute(array(':cid' => $_SESSION["collector_id"]));
+            $want_totals = $stmt->fetch();
+            echo "<h6>Total Wanted: " . $want_totals[0] ." -- Distinct Wanted: " . $want_totals[1] . "</h6>";
+          ?>
+        </div>
       </div>
       <div class="row">
         <?php require("php/want_table.php"); ?>

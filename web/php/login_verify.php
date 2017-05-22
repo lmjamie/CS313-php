@@ -29,6 +29,13 @@
     return $stmt->fetch();
   }
 
+  function grab_id_of_user($username) {
+    global $db;
+    $stmt = $db->prepare("SELECT id FROM collectors WHERE username = :username");
+    $stmt->execute(array(':username' => $username));
+    return $stmt->fetchColumn();
+  }
+
   check_post_login();
   $un_in = clean_HTML_POST($needed[0]);
   $pw_in = $_POST[$needed[1]];
@@ -39,6 +46,7 @@
     $_SESSION["username"] = $un_in;
     $_SESSION["fname"] = $name[0];
     $_SESSION["lname"] = $name[1];
+    $_SESSION["collector_id"] = grab_id_of_user($un_in);
     move_if_set_in_session("username", "../inventory.php");
   } else {
     move_if_not_set_in_session("username", "../login.php", "Invalid Username or Password");
