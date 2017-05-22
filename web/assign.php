@@ -34,6 +34,7 @@
           <ul class="collection">
             <li class="collection-item blue lighten-2 flow-text"><a class="blue-text text-lighten-5" href="homepage.php">Homepage</a></li>
             <li class="collection-item blue lighten-2 flow-text"><a class="blue-text text-lighten-5" href="store.php">Store</a></li>
+            <li class="collection-item blue lighten-2 flow-text"><a class="blue-text text-lighten-5" href="inventory.php">Magic Inventory</a></li>
           </ul>
         </div>
       </div>
