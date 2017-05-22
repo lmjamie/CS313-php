@@ -188,6 +188,10 @@
       return $stmt->fetchColumn();
     }
 
+    function cmc_handler($cmc) {
+      return (isset($cmc)) ? $cmc : 0 ;
+    }
+
     function get($card, $to_get) {
       try {
         return $card->__get($to_get);
@@ -207,7 +211,7 @@
         $card_id = $test['id'];
       } else {
         // otherwise insert it and get the id.
-        $cmc = get($card, "cmc");
+        $cmc = cmc_handler(get($card, "cmc"));
         $manacost = get($card, "manaCost");
         $colors = color_handler(get($card, "colors"));
         $types = type_handler(get($card, "types"), $prep['type_stmt']);
