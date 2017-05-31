@@ -36,6 +36,9 @@ function adding_ajax(add_type) {
               data = JSON.parse(data);
             $("#totals_counts").html(data['totals']);
             $("#table_div").html(data['table']);
+            $(".tooltipped").each(function() {
+              $(this).tooltip();
+            });
           }
         })
       }

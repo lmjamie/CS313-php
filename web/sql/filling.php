@@ -10,7 +10,7 @@
 
 <body>
   <?php
-    require("../../vendor/autoload.php");
+    require("vendor/autoload.php");
     require_once("midl.php");
     use mtgsdk\Type;
     use mtgsdk\Supertype;
@@ -252,7 +252,7 @@
 
     function fill_cards($num = 5) {
       global $db;
-      $cards = Card::where(['set' => 'kld|aer|tsp|isd|dka|avr|soi|emn'])->all();
+      $cards = Card::where(['set' => 'tsp|isd|dka|avr|soi|emn'])->all();
       $prep = array('test_prep' => $db->prepare("SELECT id FROM cards WHERE name = :name"),
       'card_insert' => $db->prepare(
         "INSERT INTO
