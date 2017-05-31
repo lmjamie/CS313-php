@@ -11,10 +11,6 @@
   }
   require("../sql/midl.php");
 
-  function clean_HTML_POST($to_get) {
-    return htmlspecialchars($_POST[$to_get]);
-  }
-
   function grab_phash($username) {
     global $db;
     $stmt = $db->prepare("SELECT password FROM collectors WHERE username = :username");
@@ -44,10 +40,10 @@
   if (password_verify($pw_in, $phashed)) {
     $name = grab_name_of_user($un_in);
     $_SESSION["username"] = $un_in;
-    $_SESSION["fname"] = $name[0];
-    $_SESSION["lname"] = $name[1];
+    $_SESSION["fname"] = $name['fname'];
+    $_SESSION["lname"] = $name['lname'];
     $_SESSION["collector_id"] = grab_id_of_user($un_in);
-    move_if_set_in_session("username", "../inventory.php");
+    move_if_set_in_session("username", "../inventory.php", "Logged in as $un_in");
   } else {
     move_if_not_set_in_session("username", "../login.php", "Invalid Username or Password");
   }

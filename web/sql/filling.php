@@ -192,6 +192,10 @@
       return (isset($cmc)) ? $cmc : 0 ;
     }
 
+    function num_handler($num) {
+      return (isset($num)) ? $num : 'DEFAULT' ;
+    }
+
     function get($card, $to_get) {
       try {
         return $card->__get($to_get);
@@ -236,7 +240,7 @@
       $flavor = get($card, "flavor");
       $imageurl = get($card, "imageUrl");
       $rarity = rarity_handler(get($card, "rarity"), $prep['rarity_stmt']);
-      $num = get($card, "number");
+      $num = num_handler(get($card, "number"));
       $set = set_handler(get($card, "set"), $prep['set_stmt']);
       $prep['scard_insert']->execute(array(
         ':flavor' => $flavor, ':imageurl' => $imageurl, ':rarityid' => $rarity,
@@ -272,7 +276,7 @@
         insert_card($card, $prep);
       }
     }
-    fill_cards();
+    // fill_cards();
 
   ?>
 </body>

@@ -103,12 +103,14 @@ CREATE TABLE cards(
 );
 \d cards
 
+CREATE SEQUENCE specificcards_missing_setnum_seq;
+
 CREATE TABLE specificcards(
   id SERIAL PRIMARY KEY,
   flavor TEXT,
   imageurl VARCHAR(256) NOT NULL UNIQUE,
   rarityid INT NOT NULL REFERENCES rarities(id),
-  numinset VARCHAR(10) NOT NULL,
+  numinset VARCHAR(10) NOT NULL DEFAULT nextval(''),
   setid INT NOT NULL REFERENCES sets(id),
   cardid INT NOT NULL REFERENCES cards(id)
 );

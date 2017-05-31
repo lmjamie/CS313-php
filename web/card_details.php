@@ -1,7 +1,4 @@
-<?php
-  require("php/moving_page.php");
-  move_if_set_in_session("username", "inventory.php");
-?>
+<?php require("php/get_card_details.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login!</title>
+  <title>Magic Card Details</title>
   <link rel="stylesheet" href="css/sticky_footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,15 +22,7 @@
   <main>
     <div class="container center">
       <div class="row">
-        <?php
-          require("php/titles.php");
-          require("php/image.php");
-          make_image("favicon.ico", "Icon", 2, 2, "offset-l5 offset-m5 offset-s5", "s2");
-        ?>
-      </div>
-      <?php $adjust = failure_check(); ?>
-      <div class="row">
-        <?php require("php/login_form.php"); ?>
+        <?php require("php/card_display.php"); ?>
       </div>
     </div>
   </main>

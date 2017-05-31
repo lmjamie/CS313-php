@@ -2,6 +2,7 @@
   require("php/moving_page.php");
   move_if_not_set_in_session("username", "login.php", "Please Login");
   require("sql/midl.php");
+  require("php/trade_table.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +15,14 @@
   <link rel="stylesheet" href="css/sticky_footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/table_colors.css">
+  <link rel="stylesheet" href="css/autocomplete.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  <script src="js/navbar.js"></script>
+  <script src="js/autocomplete.js"></script>
+  <script src="js/inv_nav.js"></script>
+  <script src="js/card_clicked.js"></script>
+  <script src="js/add_to_functions.js"></script>
 </head>
 
 <body class="blue-grey lighten-5">
@@ -27,20 +33,14 @@
     <div class="container center">
       <div class="row">
         <?php require("php/titles.php"); ?>
-        <div class="col s12 blue-grey-text text-lighten-1">
-          <?php
-            $stmt = $db->prepare("SELECT tl.totaltrade, tl.distincttrade
-              FROM tradelists AS tl, inventories AS i
-              WHERE i.collectorid = :cid AND tl.inventoryid = i.id");
-            $stmt->execute(array(':cid' => $_SESSION["collector_id"]));
-            $trade_totals = $stmt->fetch();
-            echo "<h6>Total Trades: " . $trade_totals[0] ." -- Distinct Trades: " . $trade_totals[1] . "</h6>";
-          ?>
+        <div id="totals_counts" class="col s12 blue-grey-text text-lighten-1">
+          <?php tradelist_count_display(); ?>
         </div>
       </div>
-      <div class="row">
-        <?php require("php/trade_table.php"); ?>
+      <div id="table_div" class="row">
+        <?php print_table(); ?>
       </div>
+      <?php require("php/add_card_button.php"); ?>
     </div>
   </main>
   <footer class="page-footer green lighten-1">

@@ -1,0 +1,6 @@
+table.highlight > tbody > tr:hover {
+    background-color: #FFF3E0 !important;
+}
+table.striped > tbody > tr:nth-child(odd) {
+  background-color: #E8F5E9;
+}

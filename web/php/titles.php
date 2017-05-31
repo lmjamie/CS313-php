@@ -65,10 +65,17 @@
       $lighten = "text-lighten-2";
       $header_size = 3;
       break;
+    case 'create_account':
+      $title_content = "Create New Account";
+      $color = "blue-grey-text";
+      $lighten = "text-lighten-2";
+      $header_size = 3;
+      break;
     default:
       $title_content = "Web Engineering II";
       break;
   }
+
   echo strtr(
     "$col_tag_begin
     <h$header_size$header_class>$title_content</h$header_size>

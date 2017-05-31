@@ -1,0 +1,8 @@
+.modal {
+overflow: visible;
+max-height: 100%;
+}
+.responsive-card {
+  max-width: 80%;
+  height: auto;
+}
