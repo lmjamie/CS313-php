@@ -10,7 +10,6 @@
 
 <body>
   <?php
-
     require("vendor/autoload.php");
     require_once("midl.php");
     use mtgsdk\Type;
@@ -253,7 +252,7 @@
 
     function fill_cards($num = 5) {
       global $db;
-      $cards = Card::where(['set' => 'lea|akh'])->all();
+      $cards = Card::where(['set' => 'kld|aer'])->all();
       $prep = array('test_prep' => $db->prepare("SELECT id FROM cards WHERE name = :name"),
       'card_insert' => $db->prepare(
         "INSERT INTO
@@ -276,7 +275,7 @@
         insert_card($card, $prep);
       }
     }
-    // fill_cards();
+    fill_cards();
 
   ?>
 </body>
