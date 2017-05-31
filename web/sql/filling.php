@@ -275,7 +275,7 @@
         insert_card($card, $prep);
       }
     }
-    fill_cards();
+    // fill_cards();
 
   ?>
 </body>
